@@ -39,14 +39,16 @@ while is_eating:
     if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         screen.bgcolor("red")
         screen.bgcolor("black")
-        score.game_over()
-        is_eating = False
+        score.reset()
+        snake.reset()
 
     # detect tail collision
     for segment in snake.snake_body[1:]:
         if snake.head.distance(segment) < 10:
             screen.bgcolor("green")
             screen.bgcolor("black")
-            score.game_over()
-            is_eating = False
+            score.reset()
+            snake.reset()
+
+
 screen.exitonclick()
